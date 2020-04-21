@@ -1,0 +1,37 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20191021_init
+      author: Paweł Janowiak
+      sqlFile:
+        relativeToChangelogFile: true
+        splitStatements: false
+        path: 20191021_init.sql
+  - changeSet:
+      id: 20191124_jpa
+      author: Paweł Janowiak
+      sqlFile:
+        relativeToChangelogFile: true
+        splitStatements: false
+        path: 20191124_jpa.sql
+  - changeSet:
+      id: 20191220_createUserTable
+      author: Aleksander Bober
+      sqlFile:
+        relativeToChangelogFile: true
+        splitStatements: false
+        path: 20191220_createUserTable.sql
+  - changeSet:
+      id: 20200115_init
+      author: Aleksander Bober
+      sqlFile:
+        relativeToChangelogFile: true
+        splitStatements: false
+        path: 20200115_init.sql
+  - changeSet:
+      id: 20200116_addAdmin
+      author: Aleksander Bober
+      sqlFile:
+        relativeToChangelogFile: true
+        splitStatements: false
+        path: 20200116_addAdmin.sql
+

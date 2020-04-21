@@ -1,0 +1,1 @@
+INSERT INTO uzytkownik (firstName,lastName,username,password,email,birthDate,isAdmin) values ('Admin','Admin','admin','$2a$10$/eLXfPptBANOVGN/B8TqcuDIwILGulKh5TUgM1T4LdNvEoHFdPske','admin@admin.pl','11/11/1111',true);

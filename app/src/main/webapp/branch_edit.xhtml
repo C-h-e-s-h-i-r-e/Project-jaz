@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jstl/core"
+>
+<h:body>
+
+    <ui:composition template="templates/base.xhtml">
+        <ui:param name="title" value="Create Branch"/>
+
+        <ui:define name="header"><div class="text-center"><b>Edit Branch</b></div></ui:define>
+
+        <ui:define name="content">
+            <div class="text-center">
+
+                <h:form styleClass="form-base">
+
+                    <div class="form-group">
+                        <h:inputText id="Name" styleClass="form-control" a:placeholder="Branch Name"
+                                     value="#{branchRequest.name}"/>
+                    </div>
+
+
+                    <h:commandButton styleClass="btn btn-primary" value="Add" action="#{branchController.edit}"/>
+                </h:form>
+            </div>
+        </ui:define>
+
+    </ui:composition>
+
+</h:body>
+</html>

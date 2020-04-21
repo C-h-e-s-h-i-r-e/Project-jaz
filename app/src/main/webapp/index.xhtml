@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+>
+<h:body>
+
+    <ui:composition template="templates/base.xhtml">
+        <ui:param name="title" value="Main"/>
+
+        <ui:define name="header"></ui:define>
+
+        <ui:define name="content">
+            <h2>Witaj <h:outputText value="#{userContext.fullName}"/> w <h:outputText value="#{msg['jaz.app.name']}"/>!
+            </h2>
+
+            <h:form>
+                <a href="category_add.xhtml" target="_blank">Add Cattegory</a>
+            </h:form>
+
+            <h:form>
+                <a href="branch_add.xhtml" target="_blank">Add Branch</a>
+            </h:form>
+
+            <h:form>
+                <a href="auction_create.xhtml" target="_blank">Create Auction</a>
+            </h:form>
+
+            <h:form>
+                <a href="branch_all.xhtml" target="_blank">All Branches</a>
+            </h:form>
+
+            <h:form>
+                <a href="category_all.xhtml" target="_blank">All Categories</a>
+            </h:form>
+
+            <h:form>
+                <a href="auction_all.xhtml" target="_blank">All Auctions</a>
+            </h:form>
+
+            <h:form>
+                <h:commandButton styleClass="btn btn-primary" value="Logout" action="#{logoutController.logout}"/>
+            </h:form>
+        </ui:define>
+
+        <ui:define name="footer"></ui:define>
+    </ui:composition>
+
+</h:body>
+</html>

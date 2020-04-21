@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jstl/core"
+>
+<h:body>
+
+    <ui:composition template="templates/base.xhtml">
+        <ui:param name="title" value="All Branches"/>
+
+        <ui:define name="header"><div class="text-center"><b>All Auctions</b></div></ui:define>
+
+        <ui:define name="content">
+            <div class="text-center">
+
+                <h:dataTable value="#{auctionRepository.all}" var="b" styleClass="table-borderless" >
+
+                    <h:column>
+                        <f:facet name="header">Photo</f:facet>
+                        <h:graphicImage value="#{auctionRepository.getPhotos(b.id).get(0).link}" height="50px" width="50px"/>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Title</f:facet>
+                        #{b.title}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Description</f:facet>
+                       #{b.description}
+                    </h:column>
+
+                    <h:column>
+                    <f:facet name="header">Price</f:facet>
+                        #{b.price}
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header">Podglad</f:facet>
+                        <h:outputLink value="auction">
+                            <h:outputText value="view"/>
+                            <f:param name="operation" value="view"/>
+                            <f:param name="id" value="#{b.id}"/>
+                        </h:outputLink>
+                    </h:column>
+
+                </h:dataTable>
+
+            </div>
+        </ui:define>
+
+    </ui:composition>
+
+</h:body>
+</html>

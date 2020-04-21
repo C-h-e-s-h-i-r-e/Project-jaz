@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jstl/core"
+>
+<h:body>
+
+    <ui:composition template="templates/base.xhtml">
+        <ui:param name="title" value="All Branches"/>
+
+        <ui:define name="header"><div class="text-center"><b>All Branches</b></div></ui:define>
+
+        <ui:define name="content">
+            <div class="text-center">
+
+                <h:dataTable value="#{branchRepository.all}" var="b" styleClass="table-borderless" >
+                    <h:column>
+                        <f:facet name="header">Name</f:facet>
+                        #{b.name}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Operations</f:facet>
+                        <h:outputLink value="branch">
+                            <h:outputText value="edit"/>
+                            <f:param name="operation" value="edit"/>
+                            <f:param name="id" value="#{b.id}"/>
+
+                        </h:outputLink>
+
+                        <h:form>
+                            <h:commandButton value="delete" action="#{branchController.remove}">
+                                <f:setPropertyActionListener target="#{branchRequest.id}" value="#{b.id}" />
+                            </h:commandButton>
+                        </h:form>
+
+                    </h:column>
+                </h:dataTable>
+
+            </div>
+        </ui:define>
+
+    </ui:composition>
+
+</h:body>
+</html>
